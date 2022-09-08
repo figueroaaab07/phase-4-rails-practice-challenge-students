@@ -9,6 +9,11 @@ class InstructorsController < ApplicationController
     render json: instructor
   end
 
+  def create
+    instructor = Instructor.create!(instructor_params)
+    render json: instructor, status: :created
+  end
+
   def update
     instructor = find_instructor
     instructor.update!(params)

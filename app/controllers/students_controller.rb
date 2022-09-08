@@ -9,6 +9,11 @@ class StudentsController < ApplicationController
     render json: student
   end
 
+  def create
+    student = Student.create!(student_params)
+    render json: student, status: :created
+  end
+
   def update
     student = find_student
     student.update!(params)
@@ -25,7 +30,7 @@ class StudentsController < ApplicationController
   private
 
   def student_params
-    params.permit(:id, :name, :major, :age)
+    params.permit(:id, :name, :major, :age, :instructor_id)
   end
 
   def find_student
