@@ -16,7 +16,7 @@ class StudentsController < ApplicationController
 
   def update
     student = find_student
-    student.update!(params)
+    student.update!(student_params)
     render json: student
   end
 

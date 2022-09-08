@@ -16,7 +16,7 @@ class InstructorsController < ApplicationController
 
   def update
     instructor = find_instructor
-    instructor.update!(params)
+    instructor.update!(instructor_params)
     render json: instructor
   end
 
